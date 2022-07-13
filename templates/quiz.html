@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title> Quiz </title>
+{% endblock %}
+
+{% block estilos %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+{% endblock %}
+
+{% block contenido %}
+<body onload = "createPregunta('{{ pregunta }}'); createRespuestas('{{ respuestaBien }}', '{{ respuestaMal1 }}', '{{ respuestaMal2 }}', '{{ respuestaMal3 }}')">
+  
+<div id="pregunta">
+  
+</div>
+
+<div id="respuestas">
+</div>
+</body>
+{% endblock %}
+
+
+
+
+{% block javascript %} 
+<script>
+var numeroQuiz = 0
+var segundosGanados = 0
+  
+function createPregunta(pregunta) {
+   document.getElementById("pregunta").innerHTML += `
+<h3>${pregunta}</h3>`
+}
+
+function createRespuestas(correcta, incorrecta1, incorrecta2, incorrecta3) {
+  let respuestas = [correcta, incorrecta1, incorrecta2, incorrecta3]
+  respuestas = respuestas.sort(function(){return Math.random() - 0.5});
+  for (let i = 0; i < respuestas.length; i++){
+    if (respuestas[i] = correcta){
+      document.getElementById("respuestas").innerHTML += `
+          <button class="respuesta" id= respuestaCorrecta onclick="comprobarQuiz(correcto)">${respuestas[i]}</button>`;
+    } else {
+      document.getElementById("respuestas").innerHTML += `
+          <button class="respuesta" id= respuestaIncorrecta onclick="comprobarQuiz(incorrecto)">${respuestas[i]}</button>`;
+    }
+}}
+function corregir(){
+  document.getElementByID()
+}
+  
+function comprobarQuiz(ID){
+  if (ID = "correcto"){
+    document.getElementById("respuestaIncorrecta").style.color = "red";
+    document.getElementById("respuestaCorrecta").style.color = "green";
+    segundosGanados = 5;
+    setTimeout(function(){
+     location.href = `{{ paginaSiguiente }}`
+     }
+, 4000);
+  } else {
+    document.getElementById("respuestaIncorrecta").style.color = "red";
+    document.getElementById("respuestaCorrecta").style.color = "green";
+    setTimeout(function(){
+     location.href = `{{ paginaSiguiente }}`
+     }
+, 4000);
+  }
+}
+</script>
+  
+{% endblock %}

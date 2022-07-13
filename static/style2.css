@@ -1,0 +1,17 @@
+body{
+  background-image: url("https://i.imgur.com/EaKCAzb.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h3{
+  color:red;
+}
+.pregunta{
+  color:pink;
+}
+#pregunta{
+  color:purple;
+}
+h1{
+  color:blue;
+}

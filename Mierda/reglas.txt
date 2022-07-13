@@ -1,0 +1,32 @@
+od = random.randint(1,3)
+pal = random.randint(1,75)
+conn_quiz = sqlite3.connect("databases/quiz.db")
+conn_ahorcado = sqlite3.connect("databases/Ahorcado.db")
+conn_conectar = sqlite3.connect("databases/Conectar.db")
+conn_rosco = sqlite3.connect("databases/Rosco.db")
+q = f"""SELECT pregunta, correcta, incorrecta_1, incorrecta_2, incorrecta_3, ODS FROM Quiz WHERE ODS = {od}"""
+a = f"""SELECT palabra, ODS FROM Ahorcado WHERE ODS = {od}"""
+c = f"""SELECT frase_1, frase_2, ODS FROM conectar_frases_palabras WHERE ODS = {od}"""
+r = f"""SELECT palabra, definicion, ODS FROM rosco where id = {pal}"""
+for i in range (1,25):
+  conn_rosco.execute(r)
+
+conn_quiz.execute(q)
+conn_ahorcado.execute(a)
+conn_conectar.execute(c)
+
+<body onload = "createPregunta('{{ pregunta }}'); createRespuestas('{{ respuestaBien }}', '{{ respuestaMal1 }}', '{{ respuestaMal2 }}', '{{ respuestaMal3 }}')">
+
+
+
+
+- las bases deben estar en un radio de 5000
+
+- Durante la primera semana está TERMINANTEMENTE PROHIBIDO atentar contra la propiedad privada de el resto de los habitantes (ya sean raideos, griffeos, hurtos, asesinatos, etc)
+
+- 
+
+- FEDE NO PONE LOS MODS
+
+.
+De no cumplir alguna de estas reglas, se aplicaran las sanciones correspondientes dependiendo de la fisureada que hiciste

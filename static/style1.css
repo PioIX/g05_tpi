@@ -1,0 +1,29 @@
+*{
+  font-family: Arial;
+}
+body{
+  background-image: url("https://i.imgur.com/EaKCAzb.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1{
+  margin-top: 150px;
+  font-size: 70px;
+  color: white;
+  text-align: center;
+}
+
+#boton{
+  border-radius: 20px;
+  background-color:transparent;
+  height:60px;
+  width:200px;
+  margin-top: 200px;
+  font-size:20px; 
+  color: white;
+}
+
+#boton:hover{
+  background-color: #676767;
+}

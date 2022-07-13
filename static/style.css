@@ -1,0 +1,43 @@
+*{
+  font-family: Arial;
+}
+body{
+  /*background-image: url("https://i.imgur.com/pkm5tGs.gif");*/
+  /*background-image: url("Negro.jpg");*/
+   
+  background-image: url("https://i.imgur.com/EaKCAzb.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h1{
+  font-size:100px;
+  padding-top: 50px;
+  color: white;
+  text-align: center;
+
+}
+h2{
+  font-size:50px;
+  color: white;
+  text-align: center;
+
+}
+h3{
+  font-size:25px;
+  color: white;
+  text-align: center;
+
+}
+#boton{
+  border-radius: 20px;
+  background-color:transparent;
+  height:60px;
+  width:150px;
+  margin-top: 40px;
+  font-size:20px; 
+  color: white;
+}
+
+#boton:hover{
+  background-color: #676767;
+}

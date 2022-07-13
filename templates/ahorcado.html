@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title> Ahorcado </title>
+{% endblock %}
+
+{% block estilos %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style3.css') }}">
+{% endblock %}
+
+{% block contenido %}
+<body onload="createBlanks('{{ palabra }}'); createLetras()">
+<h1> Ahorcado - {{ ods }} </h1>
+
+<div id="imagen">
+  <img src="imagen">
+</div>
+  
+<div id= "letras"> 
+  
+</div>
+
+<div id="palabra">
+  
+</div>
+  
+
+<div style="text-align: center;">
+<input type="submit" class="btn btn-success" id="boton" value="CONTINUAR" onclick="continuar()">
+</div>
+</body>
+{% endblock %}
+
+{% block javascript %}
+
+<script>
+
+var intentos = 6
+var segundosGanados = 0
+var letras = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z]
+var numeroAhorcado = 0
+
+function autoComprobar(palabra){
+  let completo = 0
+  for (let i = 0; i < palabra.length; i++){
+      if (document.getElementById(`noteID${i}`).innerHTML != ``){
+        completo += 1
+      }} 
+  if (intentos = 0){
+    document.getElementById("palabra").innerHTML = ``
+    for (let i = 0; i < palabra.length; i++) {
+      document.getElementById("palabra").innerHTML += `
+      <div class="caja" id="noteID${i}">
+      <h3>${palabra[i]}</h3></div>`;
+    document.getElementById("letras").innerHTML += ``
+    for (let i = 0; i < letras.length; i++) {
+      document.getElementById("letras").innerHTML += `
+        <button class=letras" id= letra${letras[i]}>${letras[i]}</button>`;
+    setTimeout(function(){
+      location.href = `{{ paginaSiguiente }}`
+      }
+    , 4000);
+    } else if (completo = palabra.length){
+      document.getElementById("letras").innerHTML += ``
+      for (let i = 0; i < letras.length; i++) {
+      document.getElementById("letras").innerHTML += `
+        <button class=letras" id= letra${letras[i]}>${letras[i]}</button>`;
+      segundosGanados += 10
+      setTimeout(function(){
+        location.href = `{{ paginaSiguiente }}`
+    }, 4000);
+    }
+}
+
+function  comprobarAhorcado(letra, palabra){
+  document.getElementById(letra).value
+  for (let i = 0; i < palabra.length; i++) {
+    if (letra in palabra){
+      var indices = [];
+      var idx = palabra.indexOf(letra);
+      while (idx != -1) {
+        indices.push(idx);
+        idx = palabra.indexOf(letra, idx + 1);}
+    for (let i = 0; i < indice.length; i++)
+      document.getElementById(`noteID${indice[i]}`).innerHTML += ` <h3>${letra}</h3>`;
+    } else{
+      intentos -= 1;
+      document.getElementById(`imagen`).innerHTML = ` 
+        <img src="imagen${intentos}">`;
+    }
+}
+
+function createBlanks(palabra) {
+  for (let i = 0; i < palabra.length; i++) {
+   document.getElementById("palabra").innerHTML += `        
+        <div class="caja" id="noteID${i}"></div>
+            `;
+}}
+
+function createLetras() {
+  for (var i = 0; i < letras.length; i++) {
+  document.getElementById("letras").innerHTML += `
+        <button class=letras" id= letra${letras[i]} onclick="comprobar(${letras[i]}, palabra)">${letras[i]}</button>`;
+}}
+  
+</script>
+
+{% endblock %}

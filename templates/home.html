@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title> Pagina Principal </title>
+{% endblock %}
+
+{% block estilos %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+
+{% block contenido %}
+<body>
+<h1> Pasapalabra </h1>
+<h2>ODS 1, 2 y 3</h2>
+<h3>Ingrese el Nombre del Usuario: <a><input placeholder="Pone tu nombre"></a></h3>
+
+
+<div style="text-align: center;">
+<input type="submit" class="btn btn-success" id="boton" value="Jugar" onclick="continuar('{{ aDonde }}')">
+</div>
+
+</body>
+{% endblock %}
+
+{% block javascript %}
+<script>
+function continuar(pagina){
+  location.href= pagina
+}
+</script>
+{% endblock %}
