@@ -24,7 +24,7 @@ Presupuesto: <a HREF="https://github.com/PioIX/G05-TPI-1cuatr/blob/main/Presupue
 
 PythonAnywhere: <a HREF="http://nickter.pythonanywhere.com/">Pagina en funcionamiento</a>
 
-Replit: <a HREF=https://replit.com/@NicolasGR8/ODS#main.py">Replit</a>
+Replit: <a HREF="https://replit.com/@NicolasGR8/ODS#main.py">Replit</a>
 
 
 Indice
